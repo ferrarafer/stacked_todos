@@ -17,7 +17,7 @@ class StartupView extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               const Text(
-                'STACKED',
+                'TodoMV* with STACKED',
                 style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.w900,
