@@ -38,6 +38,10 @@ dependencies:
   stacked: ^3.0.0
   stacked_services: ^0.9.3
 
+  # Data Models
+  freezed_annotation: ^2.2.0
+  json_annotation: ^4.7.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -52,6 +56,9 @@ dev_dependencies:
 
   stacked_generator: ^0.8.0
   mockito: ^5.1.0
+
+  freezed: ^2.2.1
+  json_serializable:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
