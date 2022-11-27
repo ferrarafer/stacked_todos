@@ -9,6 +9,10 @@ import 'dart:ui' as _i5;
 import 'package:flutter/material.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:stacked_services/stacked_services.dart' as _i2;
+import 'package:todos/enums/filter_type.dart' as _i7;
+import 'package:todos/models/task/task.dart' as _i8;
+import 'package:todos/services/shared_preferences_service.dart' as _i9;
+import 'package:todos/services/tasks_service.dart' as _i6;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -618,6 +622,341 @@ class MockDialogService extends _i1.Mock implements _i2.DialogService {
         Invocation.method(
           #completeDialog,
           [response],
+        ),
+        returnValueForMissingStub: null,
+      );
+}
+
+/// A class which mocks [SnackbarService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockSnackbarService extends _i1.Mock implements _i2.SnackbarService {
+  @override
+  bool get isSnackbarOpen => (super.noSuchMethod(
+        Invocation.getter(#isSnackbarOpen),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+  @override
+  void registerSnackbarConfig(_i2.SnackbarConfig? config) => super.noSuchMethod(
+        Invocation.method(
+          #registerSnackbarConfig,
+          [config],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void registerCustomMainButtonBuilder({
+    dynamic variant,
+    _i3.Widget Function(
+      String?,
+      Function?,
+    )?
+        builder,
+  }) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #registerCustomMainButtonBuilder,
+          [],
+          {
+            #variant: variant,
+            #builder: builder,
+          },
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void registerCustomSnackbarConfig({
+    required dynamic variant,
+    _i2.SnackbarConfig? config,
+    _i2.SnackbarConfig Function()? configBuilder,
+  }) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #registerCustomSnackbarConfig,
+          [],
+          {
+            #variant: variant,
+            #config: config,
+            #configBuilder: configBuilder,
+          },
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void showSnackbar({
+    String? title = r'',
+    required String? message,
+    dynamic Function(dynamic)? onTap,
+    Duration? duration = const Duration(seconds: 3),
+    String? mainButtonTitle,
+    void Function()? onMainButtonTapped,
+  }) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #showSnackbar,
+          [],
+          {
+            #title: title,
+            #message: message,
+            #onTap: onTap,
+            #duration: duration,
+            #mainButtonTitle: mainButtonTitle,
+            #onMainButtonTapped: onMainButtonTapped,
+          },
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  _i4.Future<dynamic>? showCustomSnackBar({
+    required String? message,
+    _i3.TextStyle? messageTextStyle,
+    required dynamic variant,
+    String? title,
+    _i3.TextStyle? titleTextStyle,
+    String? mainButtonTitle,
+    _i3.ButtonStyle? mainButtonStyle,
+    void Function()? onMainButtonTapped,
+    Function? onTap,
+    Duration? duration = const Duration(seconds: 1),
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #showCustomSnackBar,
+          [],
+          {
+            #message: message,
+            #messageTextStyle: messageTextStyle,
+            #variant: variant,
+            #title: title,
+            #titleTextStyle: titleTextStyle,
+            #mainButtonTitle: mainButtonTitle,
+            #mainButtonStyle: mainButtonStyle,
+            #onMainButtonTapped: onMainButtonTapped,
+            #onTap: onTap,
+            #duration: duration,
+          },
+        ),
+        returnValueForMissingStub: null,
+      ) as _i4.Future<dynamic>?);
+  @override
+  _i4.Future<void> closeSnackbar() => (super.noSuchMethod(
+        Invocation.method(
+          #closeSnackbar,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+}
+
+/// A class which mocks [TasksService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockTasksService extends _i1.Mock implements _i6.TasksService {
+  @override
+  _i7.FilterType get currentFilterType => (super.noSuchMethod(
+        Invocation.getter(#currentFilterType),
+        returnValue: _i7.FilterType.all,
+        returnValueForMissingStub: _i7.FilterType.all,
+      ) as _i7.FilterType);
+  @override
+  List<_i8.Task> get tasks => (super.noSuchMethod(
+        Invocation.getter(#tasks),
+        returnValue: <_i8.Task>[],
+        returnValueForMissingStub: <_i8.Task>[],
+      ) as List<_i8.Task>);
+  @override
+  List<_i8.Task> get allTasks => (super.noSuchMethod(
+        Invocation.getter(#allTasks),
+        returnValue: <_i8.Task>[],
+        returnValueForMissingStub: <_i8.Task>[],
+      ) as List<_i8.Task>);
+  @override
+  List<_i8.Task> get activeTasks => (super.noSuchMethod(
+        Invocation.getter(#activeTasks),
+        returnValue: <_i8.Task>[],
+        returnValueForMissingStub: <_i8.Task>[],
+      ) as List<_i8.Task>);
+  @override
+  List<_i8.Task> get completedTasks => (super.noSuchMethod(
+        Invocation.getter(#completedTasks),
+        returnValue: <_i8.Task>[],
+        returnValueForMissingStub: <_i8.Task>[],
+      ) as List<_i8.Task>);
+  @override
+  bool get hasTasks => (super.noSuchMethod(
+        Invocation.getter(#hasTasks),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+  @override
+  bool get hasActiveTasks => (super.noSuchMethod(
+        Invocation.getter(#hasActiveTasks),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+  @override
+  bool get hasCompletedTasks => (super.noSuchMethod(
+        Invocation.getter(#hasCompletedTasks),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+  @override
+  void setCurrentFilterType(_i7.FilterType? filterType) => super.noSuchMethod(
+        Invocation.method(
+          #setCurrentFilterType,
+          [filterType],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void add({
+    String? id,
+    required String? title,
+    String? description,
+    bool? isCompleted,
+  }) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #add,
+          [],
+          {
+            #id: id,
+            #title: title,
+            #description: description,
+            #isCompleted: isCompleted,
+          },
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void update({
+    required String? id,
+    String? title,
+    String? description,
+    bool? isCompleted,
+  }) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #update,
+          [],
+          {
+            #id: id,
+            #title: title,
+            #description: description,
+            #isCompleted: isCompleted,
+          },
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  _i8.Task? remove(String? id) => (super.noSuchMethod(
+        Invocation.method(
+          #remove,
+          [id],
+        ),
+        returnValueForMissingStub: null,
+      ) as _i8.Task?);
+  @override
+  void undoTaskRemoved({
+    required _i8.Task? task,
+    required int? index,
+  }) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #undoTaskRemoved,
+          [],
+          {
+            #task: task,
+            #index: index,
+          },
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void toggle(String? id) => super.noSuchMethod(
+        Invocation.method(
+          #toggle,
+          [id],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void clearAllCompletedTasks() => super.noSuchMethod(
+        Invocation.method(
+          #clearAllCompletedTasks,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void markAllTasksAsCompleted() => super.noSuchMethod(
+        Invocation.method(
+          #markAllTasksAsCompleted,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void listenToReactiveValues(List<dynamic>? reactiveValues) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #listenToReactiveValues,
+          [reactiveValues],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void addListener(void Function()? listener) => super.noSuchMethod(
+        Invocation.method(
+          #addListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void removeListener(void Function()? listener) => super.noSuchMethod(
+        Invocation.method(
+          #removeListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void notifyListeners() => super.noSuchMethod(
+        Invocation.method(
+          #notifyListeners,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+}
+
+/// A class which mocks [SharedPreferencesService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockSharedPreferencesService extends _i1.Mock
+    implements _i9.SharedPreferencesService {
+  @override
+  set tasks(List<_i8.Task>? tasks) => super.noSuchMethod(
+        Invocation.setter(
+          #tasks,
+          tasks,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  List<_i8.Task> get tasks => (super.noSuchMethod(
+        Invocation.getter(#tasks),
+        returnValue: <_i8.Task>[],
+        returnValueForMissingStub: <_i8.Task>[],
+      ) as List<_i8.Task>);
+  @override
+  void dispose() => super.noSuchMethod(
+        Invocation.method(
+          #dispose,
+          [],
         ),
         returnValueForMissingStub: null,
       );
