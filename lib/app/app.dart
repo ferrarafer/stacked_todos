@@ -4,14 +4,20 @@ import 'package:todos/ui/views/startup/startup_view.dart';
 import 'package:stacked_services/stacked_services.dart';
 // @stacked-import
 
-@StackedApp(routes: [
-  MaterialRoute(page: StartupView),
-  MaterialRoute(page: HomeView),
-  // @stacked-route
-], dependencies: [
-  LazySingleton(classType: NavigationService),
-  LazySingleton(classType: DialogService),
-  LazySingleton(classType: BottomSheetService),
-  // @stacked-service
-])
+@StackedApp(
+  routes: [
+    MaterialRoute(page: StartupView),
+    MaterialRoute(page: HomeView),
+// @stacked-route
+  ],
+  dependencies: [
+    LazySingleton(classType: NavigationService),
+    LazySingleton(classType: DialogService),
+    LazySingleton(classType: BottomSheetService),
+    LazySingleton(classType: SnackbarService),
+// @stacked-service
+
+  ],
+  logger: StackedLogger(),
+)
 class App {}
