@@ -1,78 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:todos/ui/common/app_colors.dart';
-import 'package:todos/ui/common/ui_helpers.dart';
+import 'package:todos/ui/views/home/widgets/filter_button.dart';
+import 'package:todos/ui/views/home/widgets/actions_button.dart';
 
 import 'home_viewmodel.dart';
+import 'widgets/task_tile.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends ViewModelBuilderWidget<HomeViewModel> {
   const HomeView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return ViewModelBuilder<HomeViewModel>.reactive(
-      viewModelBuilder: () => HomeViewModel(),
-      builder: (context, model, child) => Scaffold(
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
-            child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  verticalSpaceLarge,
-                  Column(
-                    children: [
-                      const Text(
-                        'Hello, STACKED!',
-                        style: TextStyle(
-                          fontSize: 35,
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                      verticalSpaceMedium,
-                      MaterialButton(
-                        color: Colors.black,
-                        onPressed: model.incrementCounter,
-                        child: Text(
-                          model.counterLabel,
-                          style: const TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      MaterialButton(
-                        color: kcDarkGreyColor,
-                        child: const Text(
-                          'Show Dialog',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                        onPressed: model.showDialog,
-                      ),
-                      MaterialButton(
-                        color: kcDarkGreyColor,
-                        child: const Text(
-                          'Show Bottom Sheet',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                        onPressed: model.showBottomSheet,
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-          ),
-        ),
+  Widget builder(BuildContext context, HomeViewModel viewModel, Widget? child) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Flutter TodosMVVM'),
+        actions: const [FilterButton(), ActionsButton()],
+      ),
+      body: ListView.separated(
+        itemBuilder: (BuildContext context, int index) {
+          final task = viewModel.tasks[index];
+          return TaskTile(
+            task: task,
+            confirmDismiss: (task) => viewModel.confirmDismiss(task),
+            onDismissed: (id) => viewModel.remove(id),
+            onTap: (task) => viewModel.goToEditTaskView(task),
+            onToggle: (id) => viewModel.toggle(id),
+          );
+        },
+        separatorBuilder: (BuildContext context, int index) {
+          return const Divider(height: 1);
+        },
+        itemCount: viewModel.tasks.length,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: viewModel.goToAddTaskView,
+        child: const Icon(Icons.add),
       ),
     );
+  }
+
+  @override
+  HomeViewModel viewModelBuilder(BuildContext context) {
+    return HomeViewModel();
   }
 }
