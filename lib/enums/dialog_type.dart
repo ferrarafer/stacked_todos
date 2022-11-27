@@ -1,3 +1,4 @@
 enum DialogType {
+  custom,
   infoAlert,
 }
