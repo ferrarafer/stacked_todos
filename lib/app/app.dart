@@ -4,6 +4,7 @@ import 'package:todos/ui/views/startup/startup_view.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:todos/services/tasks_service.dart';
 import 'package:todos/ui/views/add_task/add_task_view.dart';
+import 'package:todos/ui/views/edit_task/edit_task_view.dart';
 import 'package:todos/services/shared_preferences_service.dart';
 // @stacked-import
 
@@ -12,6 +13,7 @@ import 'package:todos/services/shared_preferences_service.dart';
     MaterialRoute(page: StartupView),
     MaterialRoute(page: HomeView),
     MaterialRoute(page: AddTaskView),
+    MaterialRoute(page: EditTaskView),
 // @stacked-route
   ],
   dependencies: [
