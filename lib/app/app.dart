@@ -2,6 +2,7 @@ import 'package:stacked/stacked_annotations.dart';
 import 'package:todos/ui/views/home/home_view.dart';
 import 'package:todos/ui/views/startup/startup_view.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:todos/services/shared_preferences_service.dart';
 // @stacked-import
 
 @StackedApp(
@@ -17,6 +18,10 @@ import 'package:stacked_services/stacked_services.dart';
     LazySingleton(classType: SnackbarService),
 // @stacked-service
 
+    Presolve(
+      classType: SharedPreferencesService,
+      presolveUsing: SharedPreferencesService.getInstance,
+    ),
   ],
   logger: StackedLogger(),
 )
