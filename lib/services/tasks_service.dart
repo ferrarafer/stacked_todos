@@ -9,7 +9,6 @@ import 'package:uuid/uuid.dart';
 /// Provides all the business logic to manipulate the tasks of the app
 class TasksService with ReactiveServiceMixin {
   TasksService() {
-    listenToReactiveValues([_tasks]);
     _tasks.addAll(_sharedPrefService.tasks);
   }
 
